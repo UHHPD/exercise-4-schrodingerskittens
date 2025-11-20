@@ -86,10 +86,10 @@ Data Data::operator+(const Data& data2) const {
 
         double y1, y2, w1, w2, y_sum, e_sum;
         y1 = this->measurement(i);
-        w1 = 1/(this->error(i));
+        w1 = 1/pow(this->error(i), 2);
         
         y2 = data2.measurement(i);
-        w2 = 1/(data2.error(i));
+        w2 = 1/pow(data2.error(i), 2);
 
         y_sum = (y1*w1 + y2*w2)/(w1+w2);
         e_sum = sqrt(1/(w1+w2));
